@@ -1,0 +1,24 @@
+version: 2
+jobs:
+  build:
+    working_directory: ~/loki-dnd-repro
+    docker:
+      - image: circleci/node:10.12.0-browsers
+    steps:
+      - checkout
+      - run:
+          name: Install
+          command: yarn install
+      - run:
+          name: Build storybook
+          command: ./node_modules/.bin/build-storybook -c .storybook
+      - setup_remote_docker
+      - run:
+          name: Run visual test
+          command: yarn test:visual:ci
+
+workflows:
+  version: 2
+  all:
+    jobs:
+      - build
