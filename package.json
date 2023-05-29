@@ -1,18 +1,26 @@
 {
   "devDependencies": {
-    "@babel/core": "^7.8.7",
-    "@storybook/addon-actions": "^5.3.17",
-    "@storybook/addon-links": "^5.3.17",
-    "@storybook/addons": "^5.3.17",
-    "@storybook/react": "^5.3.17",
-    "babel-loader": "^8.0.6",
-    "loki": "^0.20.1"
+    "@babel/core": "7.22.1",
+    "@babel/preset-env": "^7.22.2",
+    "@babel/preset-react": "^7.22.3",
+    "@storybook/addon-actions": "7.0.18",
+    "@storybook/addon-essentials": "^7.0.18",
+    "@storybook/addon-interactions": "^7.0.18",
+    "@storybook/addon-links": "7.0.18",
+    "@storybook/addons": "7.0.18",
+    "@storybook/blocks": "^7.0.18",
+    "@storybook/react": "7.0.18",
+    "@storybook/react-webpack5": "7.0.18",
+    "@storybook/testing-library": "^0.0.14-next.2",
+    "babel-loader": "9.1.2",
+    "loki": "0.31.2",
+    "react": "^18.2.0",
+    "storybook": "7.0.18"
   },
-  "dependencies": {},
   "scripts": {
-    "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook",
-    "test:visual:ci" : "yarn loki test --chromeDockerImage yukinying/chrome-headless-browser:82.0.4083.0 --reactUri file:./storybook-static"
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build",
+    "test:visual:ci": "yarn loki test --chromeDockerImage yukinying/chrome-headless-browser:82.0.4083.0 --reactUri file:./storybook-static"
   },
   "loki": {
     "configurations": {
@@ -24,5 +32,9 @@
         "mobile": false
       }
     }
+  },
+  "dependencies": {
+    "@storybook/components": "^7.0.18",
+    "react-dom": "^18.2.0"
   }
 }
